@@ -1,7 +1,8 @@
-package com.guizmaii.safe.libphonenumber.jruby
+package com.guizmaii.safe.libphonenumber.core.jruby
+
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber
-import com.guizmaii.safe.libphonenumber.{Country, LibPhoneNumber}
+import com.guizmaii.safe.libphonenumber.core.{Country, LibPhoneNumber}
 
 object JRubyCountry {
   final val france: Country = Country.France

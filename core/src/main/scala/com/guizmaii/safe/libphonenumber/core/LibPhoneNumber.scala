@@ -1,10 +1,10 @@
-package com.guizmaii.safe.libphonenumber
+package com.guizmaii.safe.libphonenumber.core
 
 import com.google.i18n.phonenumbers.NumberParseException.ErrorType
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber
 import com.google.i18n.phonenumbers.{NumberParseException, PhoneNumberUtil}
-import com.guizmaii.safe.libphonenumber.LibPhoneNumber.Show
+import LibPhoneNumber.Show
 
 import scala.util.control.NonFatal
 
@@ -12,7 +12,7 @@ sealed abstract class Country extends Product with Serializable
 object Country {
   final case object France extends Country
 
-  private[libphonenumber] final val showInstance: Show[Country] = {
+  private[core] final val showInstance: Show[Country] = {
     case France => "FR"
   }
 }
@@ -38,7 +38,7 @@ object PhoneNumberParseError {
 
 object LibPhoneNumber {
 
-  private[libphonenumber] trait Show[A] {
+  private[core] trait Show[A] {
     def show(a: A): String
   }
 

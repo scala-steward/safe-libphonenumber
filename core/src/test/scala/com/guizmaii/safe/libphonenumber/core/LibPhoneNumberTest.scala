@@ -1,4 +1,4 @@
-package com.guizmaii.safe.libphonenumber
+package com.guizmaii.safe.libphonenumber.core
 
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat
 import org.scalatest.{FlatSpec, Matchers}
