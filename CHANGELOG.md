@@ -6,4 +6,6 @@ More infos about this file : http://keepachangelog.com/
 
 ## [Unreleased] - no_due_date
 
+## [v1.0.0] - 2018.12.19
+
 - **Init project**
