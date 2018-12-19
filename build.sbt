@@ -44,7 +44,7 @@ lazy val noPublishSettings = Seq(
 inThisBuild(
   List(
     credentials += Credentials(Path.userHome / ".bintray" / ".credentials"),
-    licenses := Seq("Apache 2.0" -> url("http://opensource.org/licenses/https://opensource.org/licenses/Apache-2.0")),
+    licenses := Seq("Apache-2.0" -> url("http://opensource.org/licenses/https://opensource.org/licenses/Apache-2.0")),
     homepage := Some(url("https://github.com/guizmaii/safe-libphonenumber")),
     bintrayOrganization := Some("guizmaii"),
     bintrayReleaseOnPublish := true,
