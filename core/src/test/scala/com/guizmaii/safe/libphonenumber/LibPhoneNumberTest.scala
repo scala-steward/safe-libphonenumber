@@ -12,7 +12,7 @@ class LibPhoneNumberTest extends FlatSpec with Matchers {
   it should "parse" in {}
 
   it should "parseAndFormat" in {
-    LibPhoneNumber.parseAndFormat("3369678876", Country.France, PhoneNumberFormat.E164) shouldBe Right("+3369678876")
+    LibPhoneNumber.parseAndFormat("3369678876", France, PhoneNumberFormat.E164) shouldBe Right("+3369678876")
   }
 
 }
