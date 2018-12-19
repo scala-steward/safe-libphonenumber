@@ -9,23 +9,22 @@ import com.guizmaii.safe.libphonenumber.LibPhoneNumber.Show
 import scala.util.control.NonFatal
 
 sealed abstract class Country extends Product with Serializable
-final case object France      extends Country
-
 object Country {
+  final case object France extends Country
+
   private[libphonenumber] final val showInstance: Show[Country] = {
     case France => "FR"
   }
 }
 
 sealed abstract class PhoneNumberParseError extends Product with Serializable
-final case object INVALID_COUNTRY_CODE      extends PhoneNumberParseError
-final case object NOT_A_NUMBER              extends PhoneNumberParseError
-final case object TOO_SHORT_AFTER_IDD       extends PhoneNumberParseError
-final case object TOO_SHORT_NSN             extends PhoneNumberParseError
-final case object TOO_LONG                  extends PhoneNumberParseError
-final case object UNKNOWN_ERROR             extends PhoneNumberParseError
-
 object PhoneNumberParseError {
+  final case object INVALID_COUNTRY_CODE extends PhoneNumberParseError
+  final case object NOT_A_NUMBER         extends PhoneNumberParseError
+  final case object TOO_SHORT_AFTER_IDD  extends PhoneNumberParseError
+  final case object TOO_SHORT_NSN        extends PhoneNumberParseError
+  final case object TOO_LONG             extends PhoneNumberParseError
+  final case object UNKNOWN_ERROR        extends PhoneNumberParseError
 
   def apply(googleError: ErrorType): PhoneNumberParseError =
     googleError match {
@@ -49,7 +48,7 @@ object LibPhoneNumber {
     try Right(instance.parse(phoneNumner, Country.showInstance.show(country)))
     catch {
       case e: NumberParseException => Left(PhoneNumberParseError(e.getErrorType))
-      case NonFatal(_)             => Left(UNKNOWN_ERROR)
+      case NonFatal(_)             => Left(PhoneNumberParseError.UNKNOWN_ERROR)
     }
 
   final def format(phoneNumber: PhoneNumber, numberFormat: PhoneNumberFormat): String =
