@@ -1,4 +1,4 @@
-package com.guizmaii.safe.libphonenumber.core.jruby
+package com.guizmaii.safe.libphonenumber.jruby
 
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber
