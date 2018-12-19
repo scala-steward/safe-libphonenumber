@@ -12,7 +12,7 @@ sealed abstract class Country extends Product with Serializable
 object Country {
   final case object France extends Country
 
-  final val showInstance: Show[Country] = {
+  private[libphonenumber] final val showInstance: Show[Country] = {
     case France => "FR"
   }
 }
