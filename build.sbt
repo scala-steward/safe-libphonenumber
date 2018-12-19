@@ -1,4 +1,4 @@
-ThisBuild / organization := "com.guizmaii"
+ThisBuild / organization := "com.colisweb"
 ThisBuild / scalaVersion := "2.12.8"
 ThisBuild / scalafmtOnCompile := true
 ThisBuild / scalafmtCheck := true
@@ -45,14 +45,14 @@ inThisBuild(
   List(
     credentials += Credentials(Path.userHome / ".bintray" / ".credentials"),
     licenses := Seq("Apache-2.0" -> url("http://opensource.org/licenses/https://opensource.org/licenses/Apache-2.0")),
-    homepage := Some(url("https://github.com/guizmaii/safe-libphonenumber")),
-    bintrayOrganization := Some("guizmaii"),
+    homepage := Some(url("https://github.com/colisweb/safe-libphonenumber")),
+    bintrayOrganization := Some("colisweb"),
     bintrayReleaseOnPublish := true,
     publishMavenStyle := true,
     pomExtra := (
       <scm>
-        <url>git@github.com:guizmaii/safe-libphonenumber.git</url>
-        <connection>scm:git:git@github.com:guizmaii/safe-libphonenumber.git</connection>
+        <url>git@github.com:colisweb/safe-libphonenumber.git</url>
+        <connection>scm:git:git@github.com:colisweb/safe-libphonenumber.git</connection>
       </scm>
         <developers>
           <developer>
@@ -63,10 +63,3 @@ inThisBuild(
     )
   )
 )
-
-//// Aliases
-
-/**
-  * Copied from kantan.csv
-  */
-addCommandAlias("runBenchs", "benchmarks/jmh:run -i 10 -wi 10 -f 2 -t 1")

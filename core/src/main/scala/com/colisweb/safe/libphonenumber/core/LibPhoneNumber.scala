@@ -1,12 +1,15 @@
-package com.guizmaii.safe.libphonenumber.core
+package com.colisweb.safe.libphonenumber.core
 
 import com.google.i18n.phonenumbers.NumberParseException.ErrorType
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber
 import com.google.i18n.phonenumbers.{NumberParseException, PhoneNumberUtil}
-import LibPhoneNumber.Show
 
 import scala.util.control.NonFatal
+
+private[core] trait Show[A] {
+  def show(a: A): String
+}
 
 sealed abstract class Country extends Product with Serializable
 object Country {
@@ -26,7 +29,7 @@ object PhoneNumberParseError {
   final case object TOO_LONG             extends PhoneNumberParseError
   final case object UNKNOWN_ERROR        extends PhoneNumberParseError
 
-  def apply(googleError: ErrorType): PhoneNumberParseError =
+  private[core] def apply(googleError: ErrorType): PhoneNumberParseError =
     googleError match {
       case ErrorType.INVALID_COUNTRY_CODE => INVALID_COUNTRY_CODE
       case ErrorType.NOT_A_NUMBER         => NOT_A_NUMBER
@@ -37,10 +40,6 @@ object PhoneNumberParseError {
 }
 
 object LibPhoneNumber {
-
-  private[core] trait Show[A] {
-    def show(a: A): String
-  }
 
   private[this] final val instance = PhoneNumberUtil.getInstance()
 
