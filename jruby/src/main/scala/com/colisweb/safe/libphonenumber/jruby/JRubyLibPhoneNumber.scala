@@ -22,4 +22,7 @@ object JRubyLibPhoneNumber {
       numberFormat: PhoneNumberFormat
   ): String = LibPhoneNumber.parseAndFormat(phoneNumber, country, numberFormat).getOrElse(null)
 
+  final def isPossibleNumber(phoneNumber: String, country: Country): Boolean =
+    LibPhoneNumber.isPossibleNumber(phoneNumber, country)
+
 }
