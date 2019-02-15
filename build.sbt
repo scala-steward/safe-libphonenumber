@@ -1,8 +1,8 @@
-ThisBuild / organization := "com.colisweb"
-ThisBuild / scalaVersion := "2.12.8"
+ThisBuild / organization      := "com.colisweb"
+ThisBuild / scalaVersion      := "2.12.8"
 ThisBuild / scalafmtOnCompile := true
-ThisBuild / scalafmtCheck := true
-ThisBuild / scalafmtSbtCheck := true
+ThisBuild / scalafmtCheck     := true
+ThisBuild / scalafmtSbtCheck  := true
 
 lazy val projectName = "safe-libphonenumber"
 
@@ -24,7 +24,7 @@ lazy val core =
     .settings(moduleName := projectName)
     .settings(
       libraryDependencies ++= Seq(
-        "com.googlecode.libphonenumber" % "libphonenumber" % "8.10.2"
+        "com.googlecode.libphonenumber" % "libphonenumber" % "8.10.5"
       ) ++ testKitLibs)
 
 lazy val jruby =

@@ -43,8 +43,8 @@ object LibPhoneNumber {
 
   private[this] final val instance = PhoneNumberUtil.getInstance()
 
-  final def parse(phoneNumner: String, country: Country): Either[PhoneNumberParseError, PhoneNumber] =
-    try Right(instance.parse(phoneNumner, Country.showInstance.show(country)))
+  final def parse(phoneNumber: String, country: Country): Either[PhoneNumberParseError, PhoneNumber] =
+    try Right(instance.parse(phoneNumber, Country.showInstance.show(country)))
     catch {
       case e: NumberParseException => Left(PhoneNumberParseError(e.getErrorType))
       case NonFatal(_)             => Left(PhoneNumberParseError.UNKNOWN_ERROR)
@@ -58,5 +58,14 @@ object LibPhoneNumber {
       country: Country,
       numberFormat: PhoneNumberFormat
   ): Either[PhoneNumberParseError, String] = parse(phoneNumber, country).map(format(_, numberFormat))
+
+  final def isPossibleNumber(phoneNumber: String, country: Country): Boolean =
+    parse(phoneNumber, country).map(isPossibleNumber).getOrElse(false)
+
+  final def isPossibleNumber(phoneNumber: PhoneNumber): Boolean =
+    try instance.isPossibleNumber(phoneNumber)
+    catch {
+      case NonFatal(_) => false
+    }
 
 }
