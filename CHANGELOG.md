@@ -6,6 +6,8 @@ More infos about this file : http://keepachangelog.com/
 
 ## [Unreleased] - no_due_date
 
+## [v1.1.0] - 2019.02.15
+
 - **Add a `isPossibleNumber` function**
 - **Update `libphonenumber` from v8.10.2 to v8.10.5**
 
