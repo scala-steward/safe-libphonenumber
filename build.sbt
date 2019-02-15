@@ -24,7 +24,7 @@ lazy val core =
     .settings(moduleName := projectName)
     .settings(
       libraryDependencies ++= Seq(
-        "com.googlecode.libphonenumber" % "libphonenumber" % "8.10.2"
+        "com.googlecode.libphonenumber" % "libphonenumber" % "8.10.5"
       ) ++ testKitLibs)
 
 lazy val jruby =
