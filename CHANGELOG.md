@@ -6,6 +6,14 @@ More infos about this file : http://keepachangelog.com/
 
 ## [Unreleased] - no_due_date
 
+- **Update scalafmt config and reformat code**
+- **Update sbt**
+- **Update sbt plugins**
+- **Update dependencies**
+- **Add and use Scala 2.13 in the build**
+- **Update Scala 2.12**
+- **Add Scala 2.13 in the Travis matrix**
+- **Add OpenJDK13 in the Travis matrix**
 - **Add OpenJDK11 in the Travis matrix**
 
 ## [v1.1.0] - 2019.02.15

@@ -54,9 +54,9 @@ object LibPhoneNumber {
     instance.format(phoneNumber, numberFormat)
 
   final def parseAndFormat(
-      phoneNumber: String,
-      country: Country,
-      numberFormat: PhoneNumberFormat
+    phoneNumber: String,
+    country: Country,
+    numberFormat: PhoneNumberFormat
   ): Either[PhoneNumberParseError, String] = parse(phoneNumber, country).map(format(_, numberFormat))
 
   final def isPossibleNumber(phoneNumber: String, country: Country): Boolean =
