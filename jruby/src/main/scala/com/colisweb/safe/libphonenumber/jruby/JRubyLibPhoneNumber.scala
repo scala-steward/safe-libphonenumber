@@ -14,7 +14,7 @@ object JRubyLibPhoneNumber {
     LibPhoneNumber.parse(phoneNumner, country).getOrElse(null)
 
   final def format(phoneNumber: PhoneNumber, numberFormat: PhoneNumberFormat): String =
-    LibPhoneNumber.format(phoneNumber, numberFormat)
+    LibPhoneNumber.format(phoneNumber, numberFormat).getOrElse(null)
 
   final def parseAndFormat(
     phoneNumber: String,
