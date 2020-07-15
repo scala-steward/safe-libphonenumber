@@ -66,7 +66,7 @@ object LibPhoneNumber {
   ): Either[PhoneNumberError, String] = parse(phoneNumber, country).flatMap(format(_, numberFormat))
 
   final def isPossibleNumber(phoneNumber: String, country: Country): Boolean =
-    parse(phoneNumber, country).map(isPossibleNumber).getOrElse(false)
+    parse(phoneNumber, country).fold(_ => false, isPossibleNumber)
 
   final def isPossibleNumber(phoneNumber: PhoneNumber): Boolean =
     try instance.isPossibleNumber(phoneNumber)
