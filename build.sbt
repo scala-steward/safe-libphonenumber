@@ -1,4 +1,4 @@
-ThisBuild / organization := "com.colisweb"
+ThisBuild / organization := "com.guizmaii"
 ThisBuild / scalaVersion := "2.13.3"
 ThisBuild / crossScalaVersions := Seq("2.12.12", "2.13.3")
 ThisBuild / scalafmtOnCompile := true
