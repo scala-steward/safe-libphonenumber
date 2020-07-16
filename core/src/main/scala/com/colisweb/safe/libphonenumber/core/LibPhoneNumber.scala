@@ -1,7 +1,7 @@
 package com.colisweb.safe.libphonenumber.core
 
 import com.google.i18n.phonenumbers.NumberParseException.ErrorType
-import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat
+import com.google.i18n.phonenumbers.PhoneNumberUtil.{PhoneNumberFormat, PhoneNumberType}
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber
 import com.google.i18n.phonenumbers.{NumberParseException, PhoneNumberUtil}
 
@@ -13,16 +13,21 @@ object Country {
   final case object Australia extends Country("AU")
 }
 
-sealed abstract class PhoneNumberError extends Product with Serializable
+/**
+ * We need this super type because we don't have yet union types in Scala.
+ *
+ * TODO: Remove this type when moving to Scala 3.
+ */
+sealed abstract class PhoneNumberError(cause: Throwable = null) extends RuntimeException(cause)
 
-sealed abstract class PhoneNumberParseError extends PhoneNumberError
+sealed abstract class PhoneNumberParseError(cause: Throwable = null) extends PhoneNumberError(cause)
 object PhoneNumberParseError {
   final case object InvalidCountryCode        extends PhoneNumberParseError
   final case object NotANumber                extends PhoneNumberParseError
   final case object TooShortAfterIdd          extends PhoneNumberParseError
   final case object TooShortNsn               extends PhoneNumberParseError
   final case object TooLong                   extends PhoneNumberParseError
-  final case class UnknownError(e: Throwable) extends PhoneNumberParseError
+  final case class UnknownError(e: Throwable) extends PhoneNumberParseError(e)
 
   private[core] def apply(googleError: ErrorType): PhoneNumberParseError =
     googleError match {
@@ -34,10 +39,22 @@ object PhoneNumberParseError {
     }
 }
 
-sealed abstract class PhoneNumberFormatError extends PhoneNumberError
+sealed abstract class PhoneNumberFormatError(cause: Throwable = null) extends PhoneNumberError(cause)
 object PhoneNumberFormatError {
   final case object EmptyResult               extends PhoneNumberFormatError
-  final case class UnknownError(e: Throwable) extends PhoneNumberFormatError
+  final case class UnknownError(e: Throwable) extends PhoneNumberFormatError(e)
+}
+
+sealed abstract class ExamplePhoneNumberError(cause: Throwable = null) extends PhoneNumberError(cause)
+object ExamplePhoneNumberError {
+  final case object EmptyResult               extends ExamplePhoneNumberError
+  final case class UnknownError(e: Throwable) extends ExamplePhoneNumberError(e)
+}
+
+sealed abstract class PhoneNumberTypeError(cause: Throwable = null) extends PhoneNumberError(cause)
+object PhoneNumberTypeError {
+  final case object EmptyResult               extends PhoneNumberTypeError
+  final case class UnknownError(e: Throwable) extends PhoneNumberTypeError(e)
 }
 
 object LibPhoneNumber {
@@ -72,6 +89,24 @@ object LibPhoneNumber {
     try instance.isPossibleNumber(phoneNumber)
     catch {
       case NonFatal(_) => false
+    }
+
+  final def getExampleNumber(country: Country): Either[ExamplePhoneNumberError, PhoneNumber] =
+    try {
+      val result = instance.getExampleNumber(country.countryCode)
+
+      if (result == null) Left(ExamplePhoneNumberError.EmptyResult) else Right(result)
+    } catch {
+      case NonFatal(e) => Left(ExamplePhoneNumberError.UnknownError(e))
+    }
+
+  final def getNumberType(phoneNumber: PhoneNumber): Either[PhoneNumberTypeError, PhoneNumberType] =
+    try {
+      val result = instance.getNumberType(phoneNumber)
+
+      if (result == null) Left(PhoneNumberTypeError.EmptyResult) else Right(result)
+    } catch {
+      case NonFatal(e) => Left(PhoneNumberTypeError.UnknownError(e))
     }
 
 }
