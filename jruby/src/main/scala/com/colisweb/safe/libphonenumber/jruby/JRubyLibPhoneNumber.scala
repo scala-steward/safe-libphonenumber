@@ -1,8 +1,8 @@
 package com.colisweb.safe.libphonenumber.jruby
 
-import com.colisweb.safe.libphonenumber.core.{Country, LibPhoneNumber}
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber
+import com.guizmaii.safe.libphonenumber.core.{Country, LibPhoneNumber}
 
 object JRubyCountry {
   final val france: Country = Country.France

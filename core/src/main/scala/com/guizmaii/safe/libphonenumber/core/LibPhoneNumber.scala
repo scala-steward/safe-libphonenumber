@@ -1,4 +1,4 @@
-package com.colisweb.safe.libphonenumber.core
+package com.guizmaii.safe.libphonenumber.core
 
 import com.google.i18n.phonenumbers.NumberParseException.ErrorType
 import com.google.i18n.phonenumbers.PhoneNumberUtil.{PhoneNumberFormat, PhoneNumberType}
