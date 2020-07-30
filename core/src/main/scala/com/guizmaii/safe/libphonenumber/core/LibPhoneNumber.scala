@@ -97,9 +97,9 @@ object LibPhoneNumber {
       case NonFatal(_) => false
     }
 
-  final def getExampleNumber(country: Country): Either[ExamplePhoneNumberError, PhoneNumber] =
+  final def getExampleNumberForType(country: Country, `type`: PhoneNumberType): Either[ExamplePhoneNumberError, PhoneNumber] =
     try {
-      val result = instance.getExampleNumber(country.countryCode)
+      val result = instance.getExampleNumberForType(country.countryCode, `type`)
 
       if (result == null) Left(ExamplePhoneNumberError.EmptyResult) else Right(result)
     } catch {

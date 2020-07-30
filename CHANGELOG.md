@@ -7,7 +7,7 @@ More infos about this file : http://keepachangelog.com/
 ## [Unreleased] - no_due_date
 
 - **Add new `LibPhoneNumber.isValidNumber` function**
-- **Add new `LibPhoneNumber.getExampleNumber` function**
+- **Add new `LibPhoneNumber.getExampleNumberForType` function**
 - **Add new `LibPhoneNumber.getNumberType` function**
 - **Remove JDK8 from Travis since we're using `String#isBlank` which is a JDK9+ function**
 - **Update scalafmt config and reformat code**
