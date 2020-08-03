@@ -6,6 +6,8 @@ More infos about this file : http://keepachangelog.com/
 
 ## [Unreleased] - no_due_date
 
+## [v1.2.0] - 2020.08.03
+
 - **Add new `LibPhoneNumber.isValidNumber` function**
 - **Add new `LibPhoneNumber.getExampleNumberForType` function**
 - **Add new `LibPhoneNumber.getNumberType` function**
