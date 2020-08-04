@@ -71,7 +71,7 @@ object LibPhoneNumber {
   final def format(phoneNumber: PhoneNumber, numberFormat: PhoneNumberFormat): Either[PhoneNumberFormatError, String] =
     try {
       val result: String = instance.format(phoneNumber, numberFormat)
-      if (result == null || result.isBlank) Left(PhoneNumberFormatError.EmptyResult) else Right(result)
+      if (result == null || result.forall(_.isWhitespace)) Left(PhoneNumberFormatError.EmptyResult) else Right(result)
     } catch {
       case NonFatal(e) => Left(PhoneNumberFormatError.UnknownError(e))
     }

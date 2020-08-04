@@ -6,6 +6,9 @@ More infos about this file : http://keepachangelog.com/
 
 ## [Unreleased] - no_due_date
 
+
+- **Rollback: Remove JDK8 from Travis since we're using `String#isBlank` which is a JDK9+ function**
+
 ## [v1.2.0] - 2020.08.03
 
 - **Add new `LibPhoneNumber.isValidNumber` function**
