@@ -6,6 +6,7 @@ More infos about this file : http://keepachangelog.com/
 
 ## [Unreleased] - no_due_date
 
+## [v1.2.1] - 2020.08.04
 
 - **Rollback: Remove JDK8 from Travis since we're using `String#isBlank` which is a JDK9+ function**
 
