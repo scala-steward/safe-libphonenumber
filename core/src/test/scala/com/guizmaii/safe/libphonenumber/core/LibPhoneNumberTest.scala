@@ -1,9 +1,10 @@
 package com.guizmaii.safe.libphonenumber.core
 
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class LibPhoneNumberTest extends FlatSpec with Matchers {
+class LibPhoneNumberTest extends AnyFlatSpec with Matchers {
 
   behavior of "LibPhoneNumberTest"
 
