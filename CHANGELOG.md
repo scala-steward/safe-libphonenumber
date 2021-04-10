@@ -6,6 +6,8 @@ More infos about this file : http://keepachangelog.com/
 
 ## [Unreleased] - no_due_date
 
+## [v1.2.2] - 2021.04.10
+
 - Update dependencies
 - Remove TravisCI
 - Configure Github Actions
