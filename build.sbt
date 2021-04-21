@@ -9,7 +9,7 @@ lazy val projectName = "safe-libphonenumber"
 
 lazy val testKitLibs   = Seq(
   "org.scalacheck" %% "scalacheck" % "1.15.3",
-  "org.scalactic"  %% "scalactic"  % "3.2.7",
+  "org.scalactic"  %% "scalactic"  % "3.2.8",
   "org.scalatest"  %% "scalatest"  % "3.2.7"
 ).map(_ % Test)
 
