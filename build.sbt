@@ -15,7 +15,7 @@ lazy val testKitLibs   = Seq(
 
 lazy val commonsConfig = Seq(
   scalacOptions ++= List("-release", "8"),
-  addCompilerPlugin("org.typelevel" % "kind-projector"     % "0.11.3" cross CrossVersion.full),
+  addCompilerPlugin("org.typelevel" % "kind-projector"     % "0.12.0" cross CrossVersion.full),
   addCompilerPlugin("com.olegpy"   %% "better-monadic-for" % "0.3.1")
 )
 
