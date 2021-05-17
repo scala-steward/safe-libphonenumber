@@ -10,12 +10,12 @@ lazy val projectName = "safe-libphonenumber"
 lazy val testKitLibs   = Seq(
   "org.scalacheck" %% "scalacheck" % "1.15.4",
   "org.scalactic"  %% "scalactic"  % "3.2.9",
-  "org.scalatest"  %% "scalatest"  % "3.2.8"
+  "org.scalatest"  %% "scalatest"  % "3.2.9"
 ).map(_ % Test)
 
 lazy val commonsConfig = Seq(
   scalacOptions ++= List("-release", "8"),
-  addCompilerPlugin("org.typelevel" % "kind-projector"     % "0.12.0" cross CrossVersion.full),
+  addCompilerPlugin("org.typelevel" % "kind-projector"     % "0.13.0" cross CrossVersion.full),
   addCompilerPlugin("com.olegpy"   %% "better-monadic-for" % "0.3.1")
 )
 
