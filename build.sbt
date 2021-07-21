@@ -32,7 +32,7 @@ lazy val core =
     .settings(commonsConfig: _*)
     .settings(
       libraryDependencies ++= Seq(
-        "com.googlecode.libphonenumber" % "libphonenumber" % "8.12.27"
+        "com.googlecode.libphonenumber" % "libphonenumber" % "8.12.28"
       ) ++ testKitLibs
     )
 
